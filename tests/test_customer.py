@@ -15,3 +15,19 @@ def test_invalid_email_is_rejected():
         assert False
     except ValueError as exc:
         assert str(exc) == "invalid-email"
+
+def test_update_customer_email_with_whitespace():
+    customer = Customer(10, "Ana", "ana@example.com", "admin", "admin")
+    updated = update_customer_email(customer, "  user@domain.com  ", "agent")
+    assert updated.email == "user@domain.com"
+    assert updated.updated_by == "agent"
+
+def test_invalid_email_variations_rejected():
+    customer = Customer(10, "Ana", "ana@example.com", "admin", "admin")
+    invalid_emails = ["", "   ", "plainaddress", "@missinglocal.com", "missingdomain@", "missingdot@domain", None, 123]
+    for email in invalid_emails:
+        try:
+            update_customer_email(customer, email, "agent")
+            assert False, f"Expected ValueError for {email}"
+        except ValueError as exc:
+            assert str(exc) == "invalid-email"
