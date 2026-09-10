@@ -123,3 +123,6 @@ Por otro lado, contexto de mala calidad puede hacer contradecir al agente y hace
 ## What I Would Change
 No permitiría que el agente revisara los commits anteriores. Esto puede causar que el agente decida 
 reescribir todo el archivo con el contenido de los commits anteriores, lo que puede generar código innecesario y aumentar el tiempo de espera.
+
+## Intervención Humana:
+El código fue 100% generado por Inteligencia Aritificial. La intervención humana se limitó a otorgar permisos y validación. No se realizaron cambios al código generado por el agente, ya que no se detectaron errores ni problemas de funcionamiento.
